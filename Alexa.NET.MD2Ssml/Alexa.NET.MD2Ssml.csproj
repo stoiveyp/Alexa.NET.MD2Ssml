@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <Authors>Steven Pears</Authors>
+    <Description>A small utility package that converts MarkDown to Ssml</Description>
+    <Version>0.1.0-pre</Version>
+    <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
+    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseUrl>https://github.com/stoiveyp/Alexa.NET.MD2Ssml/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/stoiveyp/Alexa.NET.MD2Ssml</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/stoiveyp/Alexa.NET.MD2Ssml</RepositoryUrl>
+    <PackageTags>alexa, ssml, markdown, skills, speech</PackageTags>
+    <PackageReleaseNotes>Initial architecture - emphasis and strong elements in isolation</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Alexa.NET" Version="1.4.1" />
+    <PackageReference Include="CommonMark.NET" Version="0.15.1" />
+  </ItemGroup>
+
+</Project>
