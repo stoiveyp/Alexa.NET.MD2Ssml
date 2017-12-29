@@ -5,6 +5,8 @@
     <Authors>Steven Pears</Authors>
     <Description>A small utility package that converts MarkDown to Ssml</Description>
     <Version>0.1.0-pre</Version>
+    <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
+    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseUrl>https://github.com/stoiveyp/Alexa.NET.MD2Ssml/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/stoiveyp/Alexa.NET.MD2Ssml</PackageProjectUrl>
