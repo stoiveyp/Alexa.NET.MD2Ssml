@@ -12,7 +12,7 @@
     <PackageProjectUrl>https://github.com/stoiveyp/Alexa.NET.MD2Ssml</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Alexa.NET.MD2Ssml</RepositoryUrl>
     <PackageTags>alexa, ssml, markdown, skills, speech</PackageTags>
-    <PackageReleaseNotes>Initial architecture - emphasis and strong elements in isolation</PackageReleaseNotes>
+    <PackageReleaseNotes>Add string support</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

@@ -26,8 +26,6 @@ namespace Alexa.NET.MD2Ssml.Tests
             Output.WriteLine(speech.ToXml());
         }
 
-
-
         [Fact]
         public void CanHandleEmphasis()
         {
@@ -36,6 +34,17 @@ namespace Alexa.NET.MD2Ssml.Tests
             var first = FirstNonStructureElement(speech) as Prosody;
             Assert.NotNull(first);
             Assert.Equal(ProsodyPitch.ExtraHigh, first.Pitch);
+            Output.WriteLine(speech.ToXml());
+        }
+
+        [Fact]
+        public void CanHandlePlainText()
+        {
+            var speech = MarkdownConverter.Convert("hello");
+            Assert.Single(speech.Elements);
+            var first = FirstNonStructureElement(speech) as PlainText;
+            Assert.NotNull(first);
+            Assert.Equal("hello",first.Text);
             Output.WriteLine(speech.ToXml());
         }
 
