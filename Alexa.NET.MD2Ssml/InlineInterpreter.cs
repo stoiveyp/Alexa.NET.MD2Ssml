@@ -20,9 +20,17 @@ namespace Alexa.NET.MD2Ssml
                 case InlineTag.Emphasis:
                     HandleEmphasis(context);
                     break;
+                case InlineTag.String:case InlineTag.RawHtml:
+                    HandleText(context);
+                    break;
                 default:
                     throw new InvalidOperationException($"Unable to handle {context.Enumerable.Current.Inline.GetType()}");
             }
+        }
+
+        private static void HandleText(ConverterContext context)
+        {
+            context.Add(new PlainText(context.Enumerable.Current.Inline.LiteralContent));
         }
 
         private static void HandleStrong(ConverterContext context)
