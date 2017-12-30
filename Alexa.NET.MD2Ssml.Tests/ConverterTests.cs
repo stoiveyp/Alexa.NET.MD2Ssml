@@ -84,6 +84,17 @@ namespace Alexa.NET.MD2Ssml.Tests
             Output.WriteLine(speech.ToXml());
         }
 
+        [Fact]
+        public void CorrectlyHandlesNewParagraph()
+        {
+            var speech = MarkdownConverter.Convert($"hello{Environment.NewLine}world.{Environment.NewLine}{Environment.NewLine}New Paragraph");
+
+            Assert.Equal(2,speech.Elements.Count);
+            Assert.True(speech.Elements.All(e => e is Paragraph));
+
+            Output.WriteLine(speech.ToXml());
+        }
+
         private ISsml NonStructureElement(Speech speech, int skip = 0)
         {
             var paragraph = speech.Elements.First() as Paragraph;
