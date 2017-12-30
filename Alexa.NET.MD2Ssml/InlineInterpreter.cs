@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Xml.Linq;
-using Alexa.NET.Request.Type;
 using Alexa.NET.Response.Ssml;
 using CommonMark.Syntax;
 
@@ -23,9 +21,21 @@ namespace Alexa.NET.MD2Ssml
                 case InlineTag.String:case InlineTag.RawHtml:
                     HandleText(context);
                     break;
+                case InlineTag.LineBreak:case InlineTag.SoftBreak:
+                    HandleBreak(context);
+                    break;
                 default:
-                    throw new InvalidOperationException($"Unable to handle {context.Enumerable.Current.Inline.GetType()}");
+                    throw new InvalidOperationException($"Unable to handle inline tag {context.Enumerable.Current.Inline.Tag}");
             }
+        }
+
+        private static void HandleBreak(ConverterContext context)
+        {
+            context.PopUntil<Paragraph>();
+            var sentence = new Sentence();
+
+            context.Add(sentence);
+            context.AddStack.Push(sentence);
         }
 
         private static void HandleText(ConverterContext context)
@@ -37,7 +47,7 @@ namespace Alexa.NET.MD2Ssml
         {
             if (!context.Enumerable.Current.IsOpening)
             {
-                throw new InvalidOperationException($"Closing strong without opening");
+                throw new InvalidOperationException("Closing strong without opening");
             }
 
             var text = TextUntil(context, InlineTag.Strong);
@@ -48,7 +58,7 @@ namespace Alexa.NET.MD2Ssml
         {
             if (!context.Enumerable.Current.IsOpening)
             {
-                throw new InvalidOperationException($"Closing emphasis without opening");
+                throw new InvalidOperationException("Closing emphasis without opening");
             }
 
             var text = TextUntil(context, InlineTag.Emphasis);

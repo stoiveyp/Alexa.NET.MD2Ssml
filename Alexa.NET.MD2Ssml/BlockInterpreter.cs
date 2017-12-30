@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Alexa.NET.Response.Ssml;
 using CommonMark.Syntax;
 
@@ -18,7 +16,7 @@ namespace Alexa.NET.MD2Ssml
                     HandleParagraph(context);
                     break;
                 default:
-                    throw new InvalidOperationException($"Unable to handle {context.Enumerable.Current.Block.GetType()}");
+                    throw new InvalidOperationException($"Unable to handle block tag {context.Enumerable.Current.Block.Tag}");
             }
         }
 
