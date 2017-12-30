@@ -12,7 +12,7 @@
     <PackageProjectUrl>https://github.com/stoiveyp/Alexa.NET.MD2Ssml</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Alexa.NET.MD2Ssml</RepositoryUrl>
     <PackageTags>alexa, ssml, markdown, skills, speech</PackageTags>
-    <PackageReleaseNotes>Add string support</PackageReleaseNotes>
+    <PackageReleaseNotes>Add multiple sentence support (soft and hard line breaks are new sentences)</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
