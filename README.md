@@ -11,3 +11,12 @@ Converts markdown syntax to the Alexa.NET SSML object model, allowing expressive
 | Hard Break  | Sentence  |
 | Emphasis  |  Prosody  -  pitch set to Extra High |
 | Strong  |  Emphasis  -  level set to strong |
+
+## Example
+
+To translate your markdown, just use the MarkdownConverter class
+
+```csharp
+var speech = MarkdownConverter.Convert("**hello** world");
+return ResponseBuilder.Tell(speech);
+```
