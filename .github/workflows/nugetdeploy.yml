@@ -1,5 +1,5 @@
 name: NuGet Publish
-on: push
+on: [push]
 push:
   branches:
   - master
@@ -8,12 +8,12 @@ jobs:
     name: Package Pipeline
     runs-on: ubuntu-latest
     steps:
-      - name: Build & Test Project
-        uses: actions/setup-dotnet@d6004ce18bdb4641fec8d84c683b2adb850c3dd5
-        run: dotnet build
+    - name: Build & Test Project
+      uses: actions/setup-dotnet@d6004ce18bdb4641fec8d84c683b2adb850c3dd5
+      run: dotnet build
              dotnet test
-      - name: Deploy project
-        uses: actions/setup-dotnet@d6004ce18bdb4641fec8d84c683b2adb850c3dd5r
-        env:
-          NUGET_KEY: ${{ secrets.NUGET_KEY }}
-        run: echo "push nuget"
+    - name: Deploy project
+      uses: actions/setup-dotnet@d6004ce18bdb4641fec8d84c683b2adb850c3dd5r
+      env:
+        NUGET_KEY: ${{ secrets.NUGET_KEY }}
+      run: echo "push nuget"
