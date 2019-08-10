@@ -4,12 +4,12 @@ workflow "New workflow" {
 }
 
 action "Build" {
-  uses = "actions/setup-dotnet@d6004ce18bdb4641fec8d84c683b2adb850c3dd5"
+  uses = "actions/setup-dotnet@v1.0.0"
   runs = "dotnet build"
 }
 
 action "Test" {
-  uses = "actions/setup-dotnet@d6004ce18bdb4641fec8d84c683b2adb850c3dd5"
+  uses = "actions/setup-dotnet@v1.0.0"
   runs = "dotnet test"
   needs = ["Build"]
 }
